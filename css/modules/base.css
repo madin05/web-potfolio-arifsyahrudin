@@ -1,0 +1,60 @@
+
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color: #0f101c;
+  --surface-color: #1b1c2d;
+  --surface-border: rgba(255, 255, 255, 0.05);
+  --primary: #f55612;
+  --primary-glow: rgba(245, 86, 18, 0.4);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --title-watermark: rgba(255, 255, 255, 0.03);
+  --header-bg: rgba(15, 16, 28, 0.8);
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --gradient-brand: linear-gradient(to right, #cc3d00, #fd370f, #f08c20);
+  --shadow-dark: rgba(0, 0, 0, 0.8);
+  --shadow-light: rgba(255, 255, 255, 0.04);
+}
+
+:root.light-mode {
+  --bg-color: #e0e0e0;
+  --surface-color: #e0e0e0;
+  --surface-border: rgba(0, 0, 0, 0.05);
+  --text-main: #333333;
+  --text-muted: #666666;
+  --title-watermark: rgba(0, 0, 0, 0.05);
+  --header-bg: rgba(224, 224, 224, 0.8);
+  --shadow-dark: rgba(180, 180, 180, 0.8);
+  --shadow-light: rgba(255, 255, 255, 0.8);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Background Decorations */
+img[id$="-decoration"] {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+  filter: blur(80px);
+}
+#jumbotron-decoration { top: 0; left: 0; width: 50vw; }
+#about-decoration { top: 30%; right: 0; width: 40vw; }
+#contact-decoration { bottom: 0; left: 0; width: 50vw; }

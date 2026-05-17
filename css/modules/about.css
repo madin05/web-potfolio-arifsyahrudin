@@ -1,0 +1,29 @@
+/* ABOUT */
+.about-display {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.about-pict {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.about-pict img {
+  width: 100%;
+  max-width: 450px;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+}
+
+.about-desc {
+  flex: 1;
+}
+
+.about-desc p {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  line-height: 1.8;
+}

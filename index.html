@@ -8,6 +8,7 @@
     <!-- css -->
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <title>ArifSyahrudin</title>
   </head>
   <body>
@@ -21,30 +22,62 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+      <div class="header-actions">
+        <label class="switch">
+          <input id="theme-toggle" type="checkbox" />
+          <span class="slider">
+            <div class="star star_1"></div>
+            <div class="star star_2"></div>
+            <div class="star star_3"></div>
+            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+              <path
+                transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+                fill="#fff"
+                d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
+              ></path>
+            </svg>
+          </span>
+        </label>
+        <label class="hamburger-switch" id="mobile-menu">
+          <input type="checkbox" id="hamburger-checkbox" />
+          <span class="wrapper">
+            <span class="row">
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </span>
+            <span class="row row-bottom">
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </span>
+            <span class="row-vertical">
+              <span class="dot"></span>
+              <span class="dot middle-dot"></span>
+              <span class="dot"></span>
+            </span>
+            <span class="row-horizontal">
+              <span class="dot"></span>
+              <span class="dot middle-dot-horizontal"></span>
+              <span class="dot"></span>
+            </span>
+          </span>
+        </label>
+      </div>
     </header>
     <main class="main">
       <section class="jumbotron" id="jumbotron">
         <div class="intro">
-          <h1>Hello, I'm <span class="auto-type"></span></h1>
-          <a href="#about"><button id="aboutMe" class="aboutMe">About Me</button></a>
+          <h1>Hello, I'm <br/><span class="auto-type"></span></h1>
+          <a href="#about"><button id="aboutMe" class="aboutMe type1"><span class="btn-txt">About Me</span></button></a>
         </div>
         <div class="jumbotron-intro-image">
           <img src="assets/Jumbotron intro.png" alt="Jumbotron-image" />
         </div>
         <div class="sosmed">
           <ul>
-            <li>
-              <a href="#"><div class="instagram"></div></a>
-            </li>
-            <li>
-              <a href="#"><div class="whatsapp"></div></a>
-            </li>
-            <li>
-              <a href="#"><div class="linkedin"></div></a>
-            </li>
-            <li>
-              <a href="#"><div class="github"></div></a>
-            </li>
+            <li><a href="#"><i class="ph ph-instagram-logo"></i></a></li>
+            <li><a href="#"><i class="ph ph-whatsapp-logo"></i></a></li>
+            <li><a href="#"><i class="ph ph-linkedin-logo"></i></a></li>
+            <li><a href="#"><i class="ph ph-github-logo"></i></a></li>
           </ul>
         </div>
       </section>
@@ -83,16 +116,29 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum nibh et quam volutpat, ac molestie arcu euismod. Duis imperdiet tincidunt facilisis. Etiam pharetra, est eu elementum ullamcorper,</p>
             </div>
             <div class="card-skill-tool frontend">
-              <img src="assets/skill-logo/Html.svg" alt="html" />
-              <img src="assets/skill-logo/Css.svg" alt="css" />
-              <img src="assets/skill-logo/Js.svg" alt="js-language" />
-              <img src="assets/skill-logo/Vue.svg" alt="vue" />
-              <img src="assets/skill-logo/React.svg" alt="react" />
-              <img src="assets/skill-logo/Tailwind.svg" alt="tailwind" />
-              <img src="assets/skill-logo/Php.svg" alt="php-language" />
-              <img src="assets/skill-logo/Laravel.svg" alt="laravel" />
+              <div class="skill-item"><img src="assets/skill-logo/Html.svg" alt="html" /></div>
+              <div class="skill-item"><img src="assets/skill-logo/Css.svg" alt="css" /></div>
+              <div class="skill-item"><img src="assets/skill-logo/Js.svg" alt="js-language" /></div>
+              <div class="skill-item"><img src="assets/skill-logo/Vue.svg" alt="vue" /></div>
+              <div class="skill-item"><img src="assets/skill-logo/React.svg" alt="react" /></div>
+              <div class="skill-item"><img src="assets/skill-logo/Tailwind.svg" alt="tailwind" /></div>
             </div>
           </div>
+
+          <div class="third skill">
+            <div class="card-skill-logo">
+              <img src="assets/code-logo.png" alt="code-logo" />
+            </div>
+            <h4 class="third-title">Back-End</h4>
+            <div class="card-skill-desc">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum nibh et quam volutpat, ac molestie arcu euismod. Duis imperdiet tincidunt facilisis. Etiam pharetra, est eu elementum ullamcorper,</p>
+            </div>
+            <div class="card-skill-tool backend">
+              <div class="skill-item"><img src="assets/skill-logo/Php.svg" alt="php-language" /></div>
+              <div class="skill-item"><img src="assets/skill-logo/Laravel.svg" alt="laravel" /></div>
+            </div>
+          </div>
+
           <div class="second skill">
             <div class="card-skill-logo">
               <img src="assets/brush-logo.png" alt="brush-logo" />
@@ -102,8 +148,8 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum nibh et quam volutpat, ac molestie arcu euismod. Duis imperdiet tincidunt facilisis. Etiam pharetra, est eu elementum ullamcorper,</p>
             </div>
             <div class="card-skill-tool design">
-              <img src="assets/skill-logo/Adobe.svg" alt="adobe-ps" />
-              <img src="assets/skill-logo/Figma.svg" alt="figma" />
+              <div class="skill-item"><img src="assets/skill-logo/Adobe.svg" alt="adobe-ps" /></div>
+              <div class="skill-item"><img src="assets/skill-logo/Figma.svg" alt="figma" /></div>
             </div>
           </div>
         </div>
@@ -116,6 +162,22 @@
         </div>
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="content-project">
+                <div class="project-img">
+                  <img src="./assets/Project-4.png" alt="website-1" />
+                </div>
+                <div class="desc">
+                  <p class="desc-project">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ullam temporibus maiores error sint, minima itaque porro iusto, tempore quas blanditiis aut praesentium nostrum molestiae fugiat quos obcaecati dolores
+                    adipisci.
+                  </p>
+                </div>
+                <div class="link-project">
+                  <a href="https://myfinanceid.vercel.app/">See Project<i data-feather="arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
             <div class="swiper-slide">
               <div class="content-project">
                 <div class="project-img">
@@ -166,12 +228,6 @@
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
           <div class="swiper-pagination"></div>
-          <div class="autoplay-progress">
-            <svg viewBox="0 0 48 48">
-              <circle cx="24" cy="24" r="20"></circle>
-            </svg>
-            <span></span>
-          </div>
         </div>
         <!-- <button id="undo-button"></button>
         <button id="next-button"></button> -->
@@ -203,7 +259,7 @@
             <div class="wrapper">
               <div class="field">
                 <textarea class="textarea" name="message" id="message" placeholder="Type message" required></textarea>
-                <button class="button"><span class="button-span">Submit Message</span></button>
+                <button class="button"><span class="button-span">Submit Message</span><div class="border fullround"></div></button>
               </div>
             </div>
           </form>
@@ -220,8 +276,6 @@
     <!-- swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-      const progressCircle = document.querySelector(".autoplay-progress svg");
-      const progressContent = document.querySelector(".autoplay-progress span");
       var swiper = new Swiper(".mySwiper", {
         spaceBetween: 30,
         centeredSlides: true,
@@ -236,12 +290,6 @@
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
-        },
-        on: {
-          autoplayTimeLeft(s, time, progress) {
-            progressCircle.style.setProperty("--progress", 1 - progress);
-            progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-          },
         },
         loop: true,
       });

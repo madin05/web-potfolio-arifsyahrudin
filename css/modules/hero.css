@@ -1,0 +1,200 @@
+/* JUMBOTRON */
+.jumbotron {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-top: 10rem;
+}
+
+.intro {
+  flex: 1;
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
+}
+
+.auto-type {
+  white-space: nowrap;
+}
+
+.intro h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+  letter-spacing: -1px;
+  min-height: 2.6em;
+}
+
+.intro h1 span {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.aboutMe {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 3.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  background: var(--gradient-brand);
+  background-size: 200% auto;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  box-shadow: 0 10px 20px var(--primary-glow),
+             inset 0 -3px 0 rgba(0,0,0,0.15),
+             inset 0 3px 0 rgba(255,255,255,0.3);
+  z-index: 1;
+}
+
+.aboutMe:hover {
+  transform: translateY(-5px);
+  background-position: right center;
+  box-shadow: 0 15px 30px var(--primary-glow),
+             inset 0 -3px 0 rgba(0,0,0,0.15),
+             inset 0 3px 0 rgba(255,255,255,0.3);
+}
+
+.aboutMe:active {
+  transform: translateY(2px);
+  box-shadow: 0 5px 10px var(--primary-glow),
+             inset 0 3px 5px rgba(0,0,0,0.3);
+}
+
+/* Shine Effect */
+.aboutMe::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  transition: all 0.6s ease;
+  z-index: -1;
+}
+
+.aboutMe:hover::before {
+  left: 200%;
+}
+
+.jumbotron-intro-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.jumbotron-intro-image img {
+  width: 100%;
+  max-width: 500px;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.sosmed {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(#ff6726, #cc3d00);
+  padding: 1.5rem 0;
+  width: 50px;
+  border-radius: 24px 0 0 24px;
+  box-shadow: 0px 0px 100px 10px rgba(255, 103, 38, 0.7);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+}
+
+.sosmed ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.sosmed a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.75);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  position: relative;
+}
+
+/* Tooltip Body */
+.sosmed a::before {
+  content: attr(data-username);
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-15px);
+  background: var(--surface-color);
+  color: var(--text-main);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+  box-shadow: 4px 4px 10px var(--shadow-dark),
+             -4px -4px 10px var(--shadow-light);
+  margin-right: 15px;
+}
+
+/* Tooltip Arrow */
+.sosmed a::after {
+  content: '';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-15px);
+  border: 6px solid transparent;
+  border-left-color: var(--surface-color);
+  margin-right: 3px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .sosmed a:hover {
+    color: rgba(0, 0, 0, 0.95);
+  }
+  
+  .sosmed a:hover i {
+    font-family: "Phosphor-Fill" !important;
+  }
+
+  .sosmed a:hover::before,
+  .sosmed a:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+  }
+}

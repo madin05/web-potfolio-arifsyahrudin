@@ -1,0 +1,140 @@
+/* PROJECT */
+.swiper-slide {
+  padding: 2rem;
+}
+
+.content-project {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-color);
+  border-radius: 30px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 8px 8px 16px var(--shadow-dark),
+             -8px -8px 16px var(--shadow-light);
+  transition: all 0.3s ease;
+  height: 100%;
+  position: relative;
+}
+
+.content-project::after {
+  content: '';
+  position: absolute;
+  inset: 0 -10px -10px -10px;
+  z-index: -1;
+}
+
+@media (hover: hover) {
+  .content-project:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.project-img {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.content-project:hover .project-img img {
+  transform: scale(1.05);
+}
+
+.desc {
+  padding: 2.5rem 2rem 1.5rem;
+  flex: 1;
+}
+
+.desc-project {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.link-project {
+  padding: 0 2rem 2.5rem;
+}
+
+.link-project a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--bg-color);
+  border-radius: 50px;
+  box-shadow: 4px 4px 10px var(--shadow-dark),
+             -4px -4px 10px var(--shadow-light);
+  transition: all 0.3s ease;
+}
+
+.link-project a:hover {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark),
+             inset -4px -4px 8px var(--shadow-light);
+  gap: 1rem;
+}
+
+/* Pagination & Navigation Swiper */
+.swiper-pagination-bullet { background: var(--text-muted); width: 10px; height: 10px; opacity: 0.3; transition: all 0.3s ease; }
+.swiper-pagination-bullet-active { background: var(--primary); width: 30px; border-radius: 5px; opacity: 1; }
+
+.swiper-button-next, .swiper-button-prev { 
+  color: var(--primary); 
+  background: var(--bg-color); 
+  width: 55px; 
+  height: 55px; 
+  border-radius: 50%; 
+  border: none;
+  box-shadow: 4px 4px 10px var(--shadow-dark),
+             -4px -4px 10px var(--shadow-light);
+  transition: all 0.3s ease; 
+}
+.swiper-button-next::after, .swiper-button-prev::after { font-size: 1.2rem; font-weight: bold; }
+.swiper-button-next:hover, .swiper-button-prev:hover { 
+  box-shadow: inset 5px 5px 10px var(--shadow-dark),
+             inset -5px -5px 10px var(--shadow-light);
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--primary);
+  background: var(--bg-color);
+  border-radius: 50%;
+  box-shadow: 4px 4px 10px var(--shadow-dark),
+             -4px -4px 10px var(--shadow-light);
+}
+
+.autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: var(--primary);
+  fill: none;
+  stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
+}

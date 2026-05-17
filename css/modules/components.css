@@ -1,0 +1,48 @@
+/* SECTION TITLES */
+.title {
+  position: relative;
+  text-align: center;
+  margin-bottom: 4rem;
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title h1 {
+  font-family: var(--font-mono);
+  font-size: clamp(4rem, 10vw, 8rem);
+  color: var(--title-watermark);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.title .titles {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -1px;
+}
+
+.title .titles span {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* COMMON SECTION */
+section {
+  padding: 8rem 5%;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+}
