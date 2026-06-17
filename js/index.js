@@ -98,3 +98,68 @@ document.querySelectorAll('.card-skill-tool').forEach(container => {
     });
   });
 });
+
+// Parallax Fade Effect for Sections
+const parallaxSections = document.querySelectorAll('section:not(#jumbotron)');
+
+let isParallaxTicking = false;
+
+window.addEventListener('scroll', () => {
+  if (!isParallaxTicking) {
+    window.requestAnimationFrame(() => {
+      const scrolled = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      
+      parallaxSections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        
+        // Only start fading when the user has seen the bottom of the section,
+        // or when the top of the section reaches the top of the viewport (for shorter sections).
+        const fadeStartPoint = Math.max(sectionTop, sectionTop + sectionHeight - viewportHeight);
+        
+        if (scrolled > fadeStartPoint) {
+          const pastFadeStart = scrolled - fadeStartPoint;
+          
+          // Calculate opacity: fades out over the height of the viewport
+          const opacity = 1 - (pastFadeStart / (viewportHeight * 0.8));
+          
+          // Calculate parallax translation: moves down slightly to create depth (using 3d for GPU acceleration)
+          const translateY = pastFadeStart * 0.4;
+          
+          section.style.opacity = Math.max(0, opacity);
+          section.style.transform = `translate3d(0, ${translateY}px, 0)`;
+          section.style.pointerEvents = opacity <= 0 ? 'none' : 'auto'; 
+        } else {
+          // Reset styles when section is normally in view
+          section.style.opacity = 1;
+          section.style.transform = 'translate3d(0, 0, 0)';
+          section.style.pointerEvents = 'auto';
+        }
+      });
+      isParallaxTicking = false;
+    });
+    isParallaxTicking = true;
+  }
+});
+
+// FAB Back to Top
+const fabTop = document.getElementById('fab-top');
+
+if (fabTop) {
+  window.addEventListener('scroll', () => {
+    // Show FAB when scrolled down 400px
+    if (window.scrollY > 400) {
+      fabTop.classList.add('show');
+    } else {
+      fabTop.classList.remove('show');
+    }
+  });
+
+  fabTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}

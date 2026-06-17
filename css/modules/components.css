@@ -46,3 +46,38 @@ section {
   margin: 0 auto;
   position: relative;
 }
+
+/* FAB Top Button */
+.fab-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(245, 86, 18, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.fab-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.fab-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(245, 86, 18, 0.6);
+}

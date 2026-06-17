@@ -35,6 +35,7 @@
 }
 
 html {
+  font-size: 14px; /* Globally scale down UI elements by ~12.5% */
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
 }

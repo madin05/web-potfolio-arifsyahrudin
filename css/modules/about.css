@@ -14,8 +14,14 @@
 
 .about-pict img {
   width: 100%;
-  max-width: 450px;
+  max-width: 600px;
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+  transform: scale(1.05); /* slightly scale it up for extra pop */
+  transition: transform 0.4s ease;
+}
+
+.about-pict img:hover {
+  transform: scale(1.1);
 }
 
 .about-desc {
