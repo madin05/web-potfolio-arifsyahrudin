@@ -80,14 +80,30 @@
     return { x, y, angle };
   }
 
+  function getStartPosition() {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+
+    if (vw <= 1024) {
+      const heroImg = document.querySelector('.jumbotron-intro-image img');
+      if (heroImg) {
+        const rect = heroImg.getBoundingClientRect();
+        return {
+          x: Math.min(vw - 36, rect.right + 24),
+          y: rect.top + window.scrollY + rect.height * 0.75
+        };
+      }
+      return { x: vw * 0.78, y: vh * 0.34 };
+    }
+
+    return { x: vw * START_X_RATIO, y: vh * START_Y_RATIO };
+  }
+
   /**
    * Phases: IDLE → IGNITION → LAUNCH (up) → TRANSITION → FLIGHT
    */
   function getRocketState(elapsed) {
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    const startX = vw * START_X_RATIO;
-    const startY = vh * START_Y_RATIO;
+    const { x: startX, y: startY } = getStartPosition();
     const upAngle = -Math.PI / 2; // nose pointing UP
 
     const ignitionEnd = IDLE_DURATION + IGNITION_DURATION;

@@ -1,7 +1,8 @@
 /* SKILLS */
 .skills-card-display {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2.5rem;
 }
 
@@ -11,13 +12,16 @@
   border-radius: 30px;
   padding: 3rem 2.5rem;
   position: relative;
-  box-shadow: 8px 8px 16px var(--shadow-dark),
-             -8px -8px 16px var(--shadow-light);
+  box-shadow:
+    8px 8px 16px var(--shadow-dark),
+    -8px -8px 16px var(--shadow-light);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  flex: 1 1 320px;
+  max-width: 380px;
 }
 
 .skill::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0 -10px -20px -10px;
   z-index: -1;
@@ -32,13 +36,11 @@
 .card-skill-logo {
   width: 70px;
   height: 70px;
-  background: rgba(249, 115, 22, 0.1);
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 2rem;
-  border: 1px solid rgba(249, 115, 22, 0.2);
 }
 
 .card-skill-logo img {
@@ -126,10 +128,6 @@
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.card-skill-tool .skill-item:hover img {
-  transform: scale(1.15);
-}
-
 :root.light-mode .card-skill-tool .skill-item img {
   filter: brightness(0) opacity(0.6);
 }
@@ -138,8 +136,140 @@
   filter: brightness(0) opacity(0.9);
 }
 
+/* Skill Icon Tooltip */
+.card-skill-tool .skill-item::after {
+  content: attr(data-tooltip);
+  --tooltip-bg: var(--primary);
+  position: absolute;
+  bottom: 110%; /* Display above the icon */
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background:
+    radial-gradient(circle 6px at 100% 100%, var(--tooltip-bg) 98%, transparent 100%) 0 0 / 6px 6px no-repeat,
+    radial-gradient(circle 6px at 0 100%, var(--tooltip-bg) 98%, transparent 100%) 100% 0 / 6px 6px no-repeat,
+    radial-gradient(circle 6px at 100% 0, var(--tooltip-bg) 98%, transparent 100%) 0 calc(100% - 6px) / 6px 6px no-repeat,
+    radial-gradient(circle 6px at 0 0, var(--tooltip-bg) 98%, transparent 100%) 100% calc(100% - 6px) / 6px 6px no-repeat,
+    linear-gradient(var(--tooltip-bg), var(--tooltip-bg)) 0 6px / 100% calc(100% - 18px) no-repeat,
+    linear-gradient(var(--tooltip-bg), var(--tooltip-bg)) 6px 0 / calc(100% - 12px) calc(100% - 6px) no-repeat,
+    conic-gradient(from -45deg at 50% 100%, var(--tooltip-bg) 90deg, transparent 0) 50% 100% / 12px 6px no-repeat;
+  color: #fff;
+  padding: 5px 12px 11px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 10;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.card-skill-tool .skill-item:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Tooltip style for light mode */
+:root.light-mode .card-skill-tool .skill-item::after {
+  --tooltip-bg: var(--text-main); /* Dark background in light mode */
+  color: #fff; /* White text */
+}
+
+/* --- Scroll Entrance Animations --- */
+.skills-card-display .skill {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.skills-card-display .skill:nth-child(1) { transition-delay: 0.1s; }
+.skills-card-display .skill:nth-child(2) { transition-delay: 0.3s; }
+.skills-card-display .skill:nth-child(3) { transition-delay: 0.5s; }
+.skills-card-display .skill:nth-child(4) { transition-delay: 0.7s; }
+
+.skills-card-display.active .skill {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ensure hover remains fast and bouncy after entrance animation */
 @media (hover: hover) {
-  .card-skill-tool img:hover {
-    transform: translateY(-5px) scale(1.1);
+  .skills-card-display.active .skill:hover {
+    transform: translateY(-10px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
+}
+
+/* Staggered entry for tools in active cards */
+.skills-card-display .skill-item {
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, opacity;
+}
+/* Staggered delay for tools in front-end card */
+.skills-card-display .first .skill-item:nth-child(1) { transition-delay: 0.2s; }
+.skills-card-display .first .skill-item:nth-child(2) { transition-delay: 0.25s; }
+.skills-card-display .first .skill-item:nth-child(3) { transition-delay: 0.3s; }
+.skills-card-display .first .skill-item:nth-child(4) { transition-delay: 0.35s; }
+.skills-card-display .first .skill-item:nth-child(5) { transition-delay: 0.4s; }
+.skills-card-display .first .skill-item:nth-child(6) { transition-delay: 0.45s; }
+
+/* Staggered delay for tools in back-end card */
+.skills-card-display .third .skill-item:nth-child(1) { transition-delay: 0.4s; }
+.skills-card-display .third .skill-item:nth-child(2) { transition-delay: 0.45s; }
+
+/* Staggered delay for tools in design card */
+.skills-card-display .second .skill-item:nth-child(1) { transition-delay: 0.6s; }
+.skills-card-display .second .skill-item:nth-child(2) { transition-delay: 0.65s; }
+
+/* Staggered delay for tools in AI card */
+.skills-card-display .fourth .skill-item:nth-child(1) { transition-delay: 0.8s; }
+.skills-card-display .fourth .skill-item:nth-child(2) { transition-delay: 0.85s; }
+.skills-card-display .fourth .skill-item:nth-child(3) { transition-delay: 0.9s; }
+
+.skills-card-display.active .skill-item {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* SVG icon styling to match images in skills */
+.card-skill-tool .skill-item svg {
+  width: 70px;
+  height: 70px;
+  margin: -12px;
+  clip-path: inset(18%);
+  object-fit: contain;
+  z-index: 1;
+  fill: var(--text-main);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              fill 0.3s ease;
+}
+
+.card-skill-tool .skill-item:hover svg {
+  transform: scale(1.1);
+}
+
+:root.light-mode .card-skill-tool .skill-item svg {
+  fill: var(--text-main);
+  filter: opacity(0.6);
+}
+
+:root.light-mode .card-skill-tool svg:hover {
+  filter: opacity(0.9);
+}
+
+/* Brand colors for AI tools on hover */
+.card-skill-tool .skill-item[data-tooltip="ChatGPT"]:hover svg {
+  fill: #10a37f;
+}
+.card-skill-tool .skill-item[data-tooltip="Google Gemini"]:hover svg {
+  fill: #1a73e8;
+}
+.card-skill-tool .skill-item[data-tooltip="Claude AI"]:hover svg {
+  fill: #cc5a2b;
 }

@@ -16,7 +16,7 @@ window.addEventListener("scroll", () => {
 
 // jumbotron style
 const typed = new Typed(".auto-type", {
-  strings: ["Arif", "Full-Stack", "Designer"],
+  strings: ["Arif", "Web Developer", "UI/X Designer"],
   typeSpeed: 150,
   backSpeed: 20,
   loop: true,
@@ -76,11 +76,20 @@ sosmedLinks.forEach(link => {
 const themeToggle = document.getElementById('theme-toggle');
 
 if (themeToggle) {
+  // Load saved theme
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.documentElement.classList.add('light-mode');
+    themeToggle.checked = true;
+  }
+
   themeToggle.addEventListener('change', () => {
     if (themeToggle.checked) {
       document.documentElement.classList.add('light-mode');
+      localStorage.setItem('theme', 'light');
     } else {
       document.documentElement.classList.remove('light-mode');
+      localStorage.setItem('theme', 'dark');
     }
   });
 }
@@ -100,7 +109,7 @@ document.querySelectorAll('.card-skill-tool').forEach(container => {
 });
 
 // Parallax Fade Effect for Sections
-const parallaxSections = document.querySelectorAll('section:not(#jumbotron)');
+const parallaxSections = document.querySelectorAll('section:not(#jumbotron):not(#contact)');
 
 let isParallaxTicking = false;
 
@@ -132,8 +141,8 @@ window.addEventListener('scroll', () => {
           section.style.pointerEvents = opacity <= 0 ? 'none' : 'auto'; 
         } else {
           // Reset styles when section is normally in view
-          section.style.opacity = 1;
-          section.style.transform = 'translate3d(0, 0, 0)';
+          section.style.opacity = '';
+          section.style.transform = '';
           section.style.pointerEvents = 'auto';
         }
       });
@@ -161,5 +170,99 @@ if (fabTop) {
       top: 0,
       behavior: 'smooth'
     });
+  });
+}
+
+// Intersection Observer for scroll entrance animations (About Me & Skills)
+const revealElements = document.querySelectorAll('.reveal-item, .reveal-pict, .reveal-card, .education-timeline, .skills-card-display');
+
+console.log('[Portfolio Debug] Found reveal elements:', revealElements.length);
+
+if (revealElements.length > 0) {
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        console.log('[Portfolio Debug] Element intersecting state changed:', entry.target.className, 'isIntersecting:', entry.isIntersecting);
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        } else {
+          // Remove active class when scrolling out of view to allow re-triggering
+          entry.target.classList.remove('active');
+        }
+      });
+    }, {
+      threshold: 0.05, // Trigger when at least 5% of the element is visible
+      rootMargin: '0px 0px -20px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    console.log('[Portfolio Debug] IntersectionObserver not supported by browser. Falling back to active state.');
+    revealElements.forEach(el => el.classList.add('active'));
+  }
+}
+
+// Contact Form Submission (FormSubmit AJAX -> arifsyah1018@gmail.com)
+const contactForm = document.getElementById('contact-form');
+const submitBtn = document.getElementById('submit-btn');
+const formStatus = document.getElementById('form-status');
+
+if (contactForm && submitBtn && formStatus) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const honey = document.getElementById('honeypot')?.value || '';
+
+    if (!name || !email || !message) return;
+
+    const btnText = submitBtn.querySelector('.button-span');
+    const originalText = btnText ? btnText.textContent : 'Submit Message';
+
+    submitBtn.disabled = true;
+    if (btnText) btnText.textContent = 'Sending...';
+    formStatus.textContent = '';
+    formStatus.className = 'form-status';
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/arifsyah1018@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          _honey: honey,
+          _subject: `Pesan Baru dari Portfolio: ${name}`,
+          _replyto: email,
+          _template: 'table',
+          _captcha: 'false'
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && (data.success === 'true' || data.success === true)) {
+        formStatus.textContent = 'Thanks for contacting me 😊';
+        formStatus.classList.add('success');
+        contactForm.reset();
+      } else if (data.message && data.message.toLowerCase().includes('activation')) {
+        formStatus.textContent = 'Form perlu aktivasi 1x: silakan cek inbox/spam arifsyah1018@gmail.com lalu klik link "Activate Form", setelah itu coba kirim lagi.';
+        formStatus.classList.add('error');
+      } else {
+        throw new Error(data.message || 'Gagal mengirim pesan.');
+      }
+    } catch (error) {
+      formStatus.textContent = error.message || 'Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.';
+      formStatus.classList.add('error');
+    } finally {
+      submitBtn.disabled = false;
+      if (btnText) btnText.textContent = originalText;
+    }
   });
 }

@@ -37,7 +37,7 @@
 html {
   font-size: 14px; /* Globally scale down UI elements by ~12.5% */
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 10px;
 }
 
 body {
@@ -59,3 +59,58 @@ img[id$="-decoration"] {
 #jumbotron-decoration { top: 0; left: 0; width: 50vw; }
 #about-decoration { top: 30%; right: 0; width: 40vw; }
 #contact-decoration { bottom: 0; left: 0; width: 50vw; }
+
+/* Text Selection & Utility Styles */
+::selection {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+::-moz-selection {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Thinner for premium feel */
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Seamless floating scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.35); /* Sleek translucent thumb */
+  border-radius: 10px;
+  border: 2px solid transparent; /* Acts as padding for the thumb */
+  background-clip: padding-box;
+  transition: background-color 0.3s ease;
+}
+
+:root.light-mode ::-webkit-scrollbar-thumb {
+  background-color: rgba(102, 102, 102, 0.35); /* Darker thumb in light mode */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary); /* Glowing orange on hover */
+  border: 1px solid transparent; /* Expands slightly on hover */
+}
+
+/* Firefox scrollbar support */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
+}
+
+:root.light-mode html {
+  scrollbar-color: rgba(102, 102, 102, 0.4) transparent;
+}

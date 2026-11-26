@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <!-- css -->
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://unpkg.com/feather-icons"></script>
@@ -68,32 +71,109 @@
     <main class="main">
       <section class="jumbotron" id="jumbotron">
         <div class="intro">
-          <h1>Hello, I'm <br/><span class="auto-type"></span></h1>
-          <a href="#about"><button id="aboutMe" class="aboutMe type1"><span class="btn-txt">About Me</span></button></a>
+          <h1>Hello, I'm <br /><span class="auto-type"></span></h1>
+          <a href="#about"
+            ><button id="aboutMe" class="aboutMe type1">
+              <span class="btn-txt">About Me</span>
+            </button></a
+          >
         </div>
         <div class="jumbotron-intro-image">
           <img src="assets/profile.png" alt="Profile" />
         </div>
         <div class="sosmed">
           <ul>
-            <li><a href="https://www.instagram.com/arifsyhrdn/"><i class="ph ph-instagram-logo"></i></a></li>
-            <li><a href="#"><i class="ph ph-whatsapp-logo"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/muhammad-arif-syahrudin/"><i class="ph ph-linkedin-logo"></i></a></li>
-            <li><a href="https://github.com/madin05"><i class="ph ph-github-logo"></i></a></li>
+            <li>
+              <a href="https://www.instagram.com/arifsyhrdn/"
+                ><i class="ph ph-instagram-logo"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#"><i class="ph ph-whatsapp-logo"></i></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/muhammad-arif-syahrudin/"
+                ><i class="ph ph-linkedin-logo"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://github.com/madin05"
+                ><i class="ph ph-github-logo"></i
+              ></a>
+            </li>
           </ul>
         </div>
       </section>
-      <img id="jumbotron-decoration" src="assets/jumbotron.svg" alt="dot-design" />
+      <img
+        id="jumbotron-decoration"
+        src="assets/jumbotron.svg"
+        alt="dot-design"
+      />
       <section class="about" id="about">
-        <div class="title about">
+        <div class="title about reveal-item">
           <h1>About Me</h1>
           <h3 class="titles">About <span>Me</span></h3>
         </div>
         <div class="about-display">
-          <div class="about-desc">
-            <div class="about-desc-text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur consequuntur sint repudiandae nobis nostrum eos quasi, aut omnis tempore perferendis exercitationem repellat labore ducimus maxime cupiditate ad obcaecati, at modi, nisi voluptates ut sunt magni? Unde repellendus est corrupti eum.</p>
+          <div class="about-left">
+            <div class="about-pict reveal-pict">
+              <img src="assets/profile-3.jpeg" alt="Profile Picture" />
             </div>
+          </div>
+          <div class="about-right">
+            <div class="about-desc">
+              <p>
+                Halo! Saya Arif Syahrudin, seorang
+                <span class="text-gradient">Web Developer</span> dan
+                <span class="text-gradient">UI/UX Designer</span> yang berfokus
+                pada pembuatan website yang interaktif, responsif, dan bernilai
+                estetika tinggi. Saya senang mengeksplorasi teknologi baru untuk
+                memberikan
+                <span class="text-gradient">pengalaman pengguna terbaik</span>.
+                Saya juga aktif menggunakan
+                <span class="text-gradient">Artificial Intelligence (AI)</span>
+                untuk mempermudah dan meningkatkan produktifitas pekerjaan saya.
+              </p>
+            </div>
+            <!-- <div class="education">
+              <h3 class="education-title">
+                <i class="ph ph-graduation-cap"></i> Riwayat Pendidikan
+              </h3>
+              <div class="education-timeline">
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-year">2024 - Now</span>
+                    <h4 class="timeline-school">Universitas Pamulang</h4>
+                    <p class="timeline-major">Teknik Informatika</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-year">2021 - 2024</span>
+                    <h4 class="timeline-school">
+                      SMK Negeri 12 Kab. Tangerang
+                    </h4>
+                    <p class="timeline-major">TBSM</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-year">2018 - 2021</span>
+                    <h4 class="timeline-school">SMP Negeri 1 Kelapa Dua</h4>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-year">2011 - 2017</span>
+                    <h4 class="timeline-school">SDS Karlina</h4>
+                  </div>
+                </div>
+              </div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -107,48 +187,93 @@
         </div>
         <div class="skills-card-display">
           <div class="first skill">
-            <div class="card-skill-logo">
-              <img src="assets/code-logo.png" alt="code-logo" />
-            </div>
             <h4 class="first-title">Front-End</h4>
             <div class="card-skill-desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum nibh et quam volutpat, ac molestie arcu euismod. Duis imperdiet tincidunt facilisis. Etiam pharetra, est eu elementum ullamcorper,</p>
+              <p>
+                Membangun antarmuka web yang interaktif, modern, dan responsif
+                menggunakan teknologi terbaru untuk memberikan pengalaman
+                pengguna yang optimal di berbagai perangkat.
+              </p>
             </div>
             <div class="card-skill-tool frontend">
-              <div class="skill-item"><img src="assets/skill-logo/Html.svg" alt="html" /></div>
-              <div class="skill-item"><img src="assets/skill-logo/Css.svg" alt="css" /></div>
-              <div class="skill-item"><img src="assets/skill-logo/Js.svg" alt="js-language" /></div>
-              <div class="skill-item"><img src="assets/skill-logo/Vue.svg" alt="vue" /></div>
-              <div class="skill-item"><img src="assets/skill-logo/React.svg" alt="react" /></div>
-              <div class="skill-item"><img src="assets/skill-logo/Tailwind.svg" alt="tailwind" /></div>
+              <div class="skill-item" data-tooltip="HTML">
+                <img src="assets/skill-logo/Html.svg" alt="html" />
+              </div>
+              <div class="skill-item" data-tooltip="CSS">
+                <img src="assets/skill-logo/Css.svg" alt="css" />
+              </div>
+              <div class="skill-item" data-tooltip="JavaScript">
+                <img src="assets/skill-logo/Js.svg" alt="js-language" />
+              </div>
+              <div class="skill-item" data-tooltip="Vue">
+                <img src="assets/skill-logo/Vue.svg" alt="vue" />
+              </div>
+              <div class="skill-item" data-tooltip="React">
+                <img src="assets/skill-logo/React.svg" alt="react" />
+              </div>
+              <div class="skill-item" data-tooltip="Tailwind CSS">
+                <img src="assets/skill-logo/Tailwind.svg" alt="tailwind" />
+              </div>
             </div>
           </div>
 
           <div class="third skill">
-            <div class="card-skill-logo">
-              <img src="assets/code-logo.png" alt="code-logo" />
-            </div>
             <h4 class="third-title">Back-End</h4>
             <div class="card-skill-desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum nibh et quam volutpat, ac molestie arcu euismod. Duis imperdiet tincidunt facilisis. Etiam pharetra, est eu elementum ullamcorper,</p>
+              <p>
+                Mengembangkan sistem sisi server yang aman, berkinerja tinggi,
+                dan terstruktur untuk mendukung fungsionalitas dan integrasi
+                data aplikasi web secara efisien.
+              </p>
             </div>
             <div class="card-skill-tool backend">
-              <div class="skill-item"><img src="assets/skill-logo/Php.svg" alt="php-language" /></div>
-              <div class="skill-item"><img src="assets/skill-logo/Laravel.svg" alt="laravel" /></div>
+              <div class="skill-item" data-tooltip="PHP">
+                <img src="assets/skill-logo/Php.svg" alt="php-language" />
+              </div>
+              <div class="skill-item" data-tooltip="Laravel">
+                <img src="assets/skill-logo/Laravel.svg" alt="laravel" />
+              </div>
             </div>
           </div>
 
           <div class="second skill">
-            <div class="card-skill-logo">
-              <img src="assets/brush-logo.png" alt="brush-logo" />
-            </div>
             <h4 class="second-title">UI/UX Designer</h4>
             <div class="card-skill-desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum nibh et quam volutpat, ac molestie arcu euismod. Duis imperdiet tincidunt facilisis. Etiam pharetra, est eu elementum ullamcorper,</p>
+              <p>
+                Merancang desain antarmuka dan pengalaman pengguna yang
+                intuitif, estetis, dan fungsional dengan fokus pada kemudahan
+                navigasi serta kepuasan pengguna.
+              </p>
             </div>
             <div class="card-skill-tool design">
-              <div class="skill-item"><img src="assets/skill-logo/Adobe.svg" alt="adobe-ps" /></div>
-              <div class="skill-item"><img src="assets/skill-logo/Figma.svg" alt="figma" /></div>
+              <div class="skill-item" data-tooltip="Adobe Photoshop">
+                <img src="assets/skill-logo/Adobe.svg" alt="adobe-ps" />
+              </div>
+              <div class="skill-item" data-tooltip="Figma">
+                <img src="assets/skill-logo/Figma.svg" alt="figma" />
+              </div>
+            </div>
+          </div>
+
+          <div class="fourth skill">
+            <h4 class="fourth-title">AI & Productivity</h4>
+            <div class="card-skill-desc">
+              <p>
+                Meningkatkan efisiensi dan kualitas pengembangan web dengan
+                memanfaatkan teknologi Artificial Intelligence (AI) terbaru
+                untuk riset, debugging, dan optimalisasi.
+              </p>
+            </div>
+            <div class="card-skill-tool ai-tools">
+              <div class="skill-item" data-tooltip="ChatGPT">
+                <img src="assets/skill-logo/chatgpt.svg" alt="chatgpt" />
+              </div>
+              <div class="skill-item" data-tooltip="Google Gemini">
+                <img src="assets/skill-logo/gemini.svg" alt="gemini" />
+              </div>
+              <div class="skill-item" data-tooltip="Claude AI">
+                <img src="assets/skill-logo/claude.svg" alt="claude" />
+              </div>
             </div>
           </div>
         </div>
@@ -161,7 +286,6 @@
         </div>
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
-            
             <div class="swiper-slide">
               <div class="content-project">
                 <div class="project-img">
@@ -169,7 +293,10 @@
                 </div>
                 <div class="desc">
                   <p class="desc-project">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore, vitae assumenda ut aliquid voluptatum sunt porro soluta cupiditate id nemo a blanditiis inventore ullam accusamus ducimus cum maxime fugit vel.20
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Dolore, vitae assumenda ut aliquid voluptatum sunt porro
+                    soluta cupiditate id nemo a blanditiis inventore ullam
+                    accusamus ducimus cum maxime fugit vel.20
                   </p>
                 </div>
                 <div class="link-project">
@@ -184,8 +311,10 @@
                 </div>
                 <div class="desc">
                   <p class="desc-project">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ullam temporibus maiores error sint, minima itaque porro iusto, tempore quas blanditiis aut praesentium nostrum molestiae fugiat quos obcaecati dolores
-                    adipisci.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
+                    ullam temporibus maiores error sint, minima itaque porro
+                    iusto, tempore quas blanditiis aut praesentium nostrum
+                    molestiae fugiat quos obcaecati dolores adipisci.
                   </p>
                 </div>
                 <div class="link-project">
@@ -200,7 +329,10 @@
                 </div>
                 <div class="desc">
                   <p class="desc-project">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore, vitae assumenda ut aliquid voluptatum sunt porro soluta cupiditate id nemo a blanditiis inventore ullam accusamus ducimus cum maxime fugit vel.20
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Dolore, vitae assumenda ut aliquid voluptatum sunt porro
+                    soluta cupiditate id nemo a blanditiis inventore ullam
+                    accusamus ducimus cum maxime fugit vel.20
                   </p>
                 </div>
                 <div class="link-project">
@@ -215,12 +347,16 @@
                 </div>
                 <div class="desc">
                   <p class="desc-project">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ullam temporibus maiores error sint, minima itaque porro iusto, tempore quas blanditiis aut praesentium nostrum molestiae fugiat quos obcaecati dolores
-                    adipisci.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
+                    ullam temporibus maiores error sint, minima itaque porro
+                    iusto, tempore quas blanditiis aut praesentium nostrum
+                    molestiae fugiat quos obcaecati dolores adipisci.
                   </p>
                 </div>
                 <div class="link-project">
-                  <a href="https://myfinanceid.vercel.app/">See Project<i data-feather="arrow-right"></i></a>
+                  <a href="https://myfinanceid.vercel.app/"
+                    >See Project<i data-feather="arrow-right"></i
+                  ></a>
                 </div>
               </div>
             </div>
@@ -231,12 +367,16 @@
                 </div>
                 <div class="desc">
                   <p class="desc-project">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ullam temporibus maiores error sint, minima itaque porro iusto, tempore quas blanditiis aut praesentium nostrum molestiae fugiat quos obcaecati dolores
-                    adipisci.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
+                    ullam temporibus maiores error sint, minima itaque porro
+                    iusto, tempore quas blanditiis aut praesentium nostrum
+                    molestiae fugiat quos obcaecati dolores adipisci.
                   </p>
                 </div>
                 <div class="link-project">
-                  <a href="https://ksmedu.my.id/">See Project<i data-feather="arrow-right"></i></a>
+                  <a href="https://ksmedu.my.id/"
+                    >See Project<i data-feather="arrow-right"></i
+                  ></a>
                 </div>
               </div>
             </div>
@@ -245,8 +385,13 @@
           <div class="swiper-button-prev"></div>
           <div class="swiper-pagination"></div>
         </div>
-        <!-- <button id="undo-button"></button>
-        <button id="next-button"></button> -->
+
+        <div class="more-projects-container">
+          <a href="projects.html" class="btn-more-projects">
+            <span>Lihat Projek Lainnya</span>
+            <i class="ph ph-arrow-right"></i>
+          </a>
+        </div>
       </section>
 
       <section class="contact" id="contact">
@@ -258,32 +403,52 @@
           <div class="contact-image">
             <img src="assets/mail-icon.svg" alt="mail-icon" />
           </div>
-          <form action="#" class="contact-form" id="contact-form">
+          <form
+            action="https://formsubmit.co/arifsyah1018@gmail.com"
+            method="POST"
+            class="contact-form"
+            id="contact-form"
+          >
+            <input type="text" name="_honey" id="honeypot" style="display: none" tabindex="-1" autocomplete="off" />
             <div class="wrapper">
               <div class="field">
-                <input type="text" id="name" required />
+                <input type="text" id="name" name="name" required />
                 <div class="underline"></div>
                 <label for="name">Name</label>
               </div>
             </div>
             <div class="wrapper">
               <div class="field">
-                <input type="email" id="email" required />
+                <input type="email" id="email" name="email" required />
                 <div class="underline"></div>
-                <label for="name">Email</label>
+                <label for="email">Email</label>
               </div>
             </div>
             <div class="wrapper">
               <div class="field">
-                <textarea class="textarea" name="message" id="message" placeholder="Type message" required></textarea>
-                <button class="button"><span class="button-span">Submit Message</span><div class="border fullround"></div></button>
+                <textarea
+                  class="textarea"
+                  name="message"
+                  id="message"
+                  placeholder="Type message"
+                  required
+                ></textarea>
+                <button type="submit" class="button" id="submit-btn">
+                  <span class="button-span">Submit Message</span>
+                  <div class="border fullround"></div>
+                </button>
+                <p class="form-status" id="form-status" aria-live="polite"></p>
               </div>
             </div>
           </form>
         </div>
       </section>
 
-      <img id="contact-decoration" src="assets/Ellipse 9.svg" alt="decoration" />
+      <img
+        id="contact-decoration"
+        src="assets/Ellipse 9.svg"
+        alt="decoration"
+      />
     </main>
 
     <!-- FAB Back to Top -->
@@ -291,8 +456,50 @@
       <i class="ph ph-arrow-up"></i>
     </button>
 
-    <footer>
-      <p style="color: var(--text-main); font-size: 1.2rem; font-weight: 600; text-align: center;">copyright &copy; 2026 Arif</p>
+    <footer class="site-footer">
+      <div class="footer-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,45 C280,-10 480,115 820,85 C1120,58 1280,10 1440,0 L1440,120 L0,120 Z"></path>
+        </svg>
+      </div>
+      <div class="footer-container">
+        <div class="footer-brand-col">
+          <a href="#jumbotron" class="footer-brand">Arif<span>S</span>yahrudin</a>
+          <a href="#contact" class="footer-cta">Contact Me</a>
+        </div>
+
+        <div class="footer-nav-col">
+          <ul class="footer-nav">
+            <li><a href="#jumbotron">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#project">Project</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-social-col">
+          <ul class="footer-socials">
+            <li>
+              <a href="https://www.instagram.com/arifsyhrdn/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="ph ph-instagram-logo"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/muhammad-arif-syahrudin/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="ph ph-linkedin-logo"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/madin05" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="ph ph-github-logo"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2026 Arif Syahrudin. All rights reserved.</p>
+      </div>
     </footer>
 
     <script>
