@@ -33,7 +33,27 @@
   letter-spacing: -1px;
   display: flex;
   align-items: center;
+  gap: 0.6rem;
   line-height: 1;
+}
+
+.brand-logo {
+  height: 44px;
+  width: 44px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-logo.logo-light {
+  display: none;
+}
+
+:root.light-mode .brand-logo.logo-dark {
+  display: none;
+}
+
+:root.light-mode .brand-logo.logo-light {
+  display: block;
 }
 
 .header .logo span {

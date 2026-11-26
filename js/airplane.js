@@ -39,7 +39,18 @@
   let pageH = 0;
   let startTime = 0;
 
+  const isDesktop = () => window.innerWidth > 1024;
+
   function resize() {
+    if (!isDesktop()) {
+      if (animId) {
+        cancelAnimationFrame(animId);
+        animId = null;
+      }
+      ctx.clearRect(0, 0, pageW, pageH);
+      return;
+    }
+
     dpr = window.devicePixelRatio || 1;
     pageW = document.documentElement.scrollWidth;
     pageH = Math.max(
@@ -51,6 +62,12 @@
     canvas.width = pageW * dpr;
     canvas.height = pageH * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    if (!animId) {
+      startTime = 0;
+      trail = [];
+      animId = requestAnimationFrame(animate);
+    }
   }
 
   function easeInOutCubic(t) {
@@ -314,6 +331,12 @@
 
   /** Main animation loop */
   function animate(timestamp) {
+    if (!isDesktop()) {
+      animId = null;
+      ctx.clearRect(0, 0, pageW, pageH);
+      return;
+    }
+
     if (!timestamp) timestamp = 0;
     if (!startTime) startTime = timestamp;
 
@@ -338,7 +361,7 @@
   // ─── Init ──────────────────────────────────────────
   function init() {
     resize();
-    if (!animId) animId = requestAnimationFrame(animate);
+    if (isDesktop() && !animId) animId = requestAnimationFrame(animate);
   }
 
   requestAnimationFrame(init);
